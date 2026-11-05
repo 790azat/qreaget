@@ -63,7 +63,8 @@ php artisan serve
    | `INSTALL_KEY` | любая длинная случайная строка |
    | `ADMIN_PASSWORD` | пароль администратора |
    | `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` | по желанию (можно задать в админке) |
-4. **Redeploy**, затем один раз откройте `https://ваш-домен/install/<INSTALL_KEY>`: создаются таблицы и стартовые данные. После этого удалите `INSTALL_KEY` из переменных.
+4. **Settings → Deployment Protection**: выключите Vercel Authentication, иначе адрес `*.vercel.app` открывается только после входа в Vercel.
+5. **Redeploy**, затем один раз откройте `https://ваш-домен/install/<INSTALL_KEY>`: создаются таблицы и стартовые данные. После этого удалите `INSTALL_KEY` из переменных.
 
 ## Деплой на SmartApe (обычный хостинг)
 
