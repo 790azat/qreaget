@@ -7,7 +7,7 @@
 <title>@yield('title', 'Панель') · {{ setting('site_name') }} Admin</title>
 <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{{ asset('css/admin.css') }}?v=4">
+<link rel="stylesheet" href="{{ asset('css/admin.css') }}?v=5">
 </head>
 <body>
 @php $u = auth()->user(); $unread = \App\Models\ChatSession::where('unread_admin', true)->count(); $newReq = \App\Models\ServiceRequest::where('status', 'new')->count(); @endphp

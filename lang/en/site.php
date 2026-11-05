@@ -64,7 +64,7 @@ return [
         'title' => 'Expertise request',
         'name' => 'Full name', 'phone' => 'Phone', 'email' => 'Email', 'department' => 'Field of expertise',
         'choose' => '— Not sure / need advice —', 'client_type' => 'You are', 'message' => 'Briefly describe your question',
-        'agree' => 'I agree to the processing of my personal data', 'submit' => 'Send request',
+        'agree' => 'I agree to data processing', 'submit' => 'Send request',
         'sent' => 'Thank you! Your request has been sent.',
         'sent_number' => 'Thank you! Your request :number has been received. We will contact you soon.',
         'warning' => 'Please do not include confidential information.',
@@ -77,7 +77,7 @@ return [
         'remember' => 'Remember me', 'submit_login' => 'Log in', 'submit_register' => 'Sign up',
         'failed' => 'Wrong email or password.', 'blocked' => 'Your account is blocked.',
         'welcome' => 'Welcome! You can now send requests and track them.',
-        'no_account' => 'No account yet?', 'have_account' => 'Already registered?', 'agree' => 'I agree to the processing of my personal data',
+        'no_account' => 'No account yet?', 'have_account' => 'Already registered?', 'agree' => 'I agree to data processing',
         'benefits' => ['Track the status of your requests', 'Comment to the specialist', 'All requests in one place'],
     ],
     'account' => [

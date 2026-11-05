@@ -9,7 +9,7 @@
 <section class="page"><div class="container two-col">
   <div>
     <div class="card" style="box-shadow:none;margin-bottom:28px">
-      <div style="display:flex;gap:18px;align-items:center;margin-bottom:18px"><span class="svc" style="padding:0;border:0;background:none"><span class="ic"><x-icon :name="$department->icon" size="28"/></span></span><h2 style="margin:0;font-size:1.6rem">{{ $department->t('name') }}</h2></div>
+      <div class="svc-title"><span class="svc" style="padding:0;border:0;background:none;flex-shrink:0"><span class="ic"><x-icon :name="$department->icon" size="28"/></span></span><h2>{{ $department->t('name') }}</h2></div>
       <div class="prose">{!! nl2br(e($department->t('description'))) !!}</div>
     </div>
     @include('partials.request-form', ['departments' => $departments, 'selectedDepartment' => $department->id])

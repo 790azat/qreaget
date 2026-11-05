@@ -11,7 +11,7 @@
     <option value="manager" @selected($item->role === 'manager')>Менеджер (заявки и чат)</option>
     <option value="admin" @selected($item->role === 'admin')>Администратор (полный доступ)</option>
   </select>@if($item->id === auth()->id())<input type="hidden" name="role" value="{{ $item->role }}">@endif</div>
-  <div class="field"><label>{{ $item->exists ? 'Новый пароль (оставьте пустым, чтобы не менять)' : 'Пароль *' }}</label><input type="password" name="password" minlength="8" @required(!$item->exists)></div>
+  <div class="field"><label>{{ $item->exists ? 'Новый пароль' : 'Пароль *' }}</label><input type="password" name="password" minlength="8" placeholder="{{ $item->exists ? 'не менять' : '' }}" @required(!$item->exists)></div>
   <div class="field" style="justify-content:end"><label class="check"><input type="checkbox" name="is_blocked" value="1" @checked($item->is_blocked) @disabled($item->id === auth()->id())> Заблокировать доступ</label></div>
   <div style="grid-column:1/-1;display:flex;gap:8px"><button class="btn btn-primary">Сохранить</button><a href="{{ route('admin.users.index') }}" class="btn">Отмена</a></div>
 </form>

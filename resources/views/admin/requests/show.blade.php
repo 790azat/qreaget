@@ -40,7 +40,7 @@
       <h2>Комментарий</h2>
       <textarea name="body" required rows="3" placeholder="Текст комментария"></textarea>
       <div style="display:flex;gap:12px;align-items:center;margin-top:10px">
-        <label class="check"><input type="checkbox" name="visible_to_client" value="1" {{ $r->user_id ? 'checked' : '' }}> Показать клиенту в кабинете</label>
+        <label class="check"><input type="checkbox" name="visible_to_client" value="1" {{ $r->user_id ? 'checked' : '' }}> Видно клиенту</label>
         <button class="btn btn-primary" style="margin-left:auto">Добавить</button>
       </div>
     </form>

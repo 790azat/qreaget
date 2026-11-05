@@ -8,7 +8,7 @@
   <div class="card stat"><small>Всего заявок</small><b>{{ $stats['requests_total'] }}</b></div>
   <div class="card stat"><small>За этот месяц</small><b>{{ $stats['requests_month'] }}</b></div>
   <div class="card stat"><small>Клиентов</small><b>{{ $stats['clients'] }}</b></div>
-  <div class="card stat"><small>Непрочитанные чаты</small><b>{{ $stats['chats_unread'] }}</b></div>
+  <div class="card stat"><small>Новые сообщения</small><b>{{ $stats['chats_unread'] }}</b></div>
   <div class="card stat"><small>Открытые чаты</small><b>{{ $stats['chats_open'] }}</b></div>
 </div>
 <div class="grid g-main">
