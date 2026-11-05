@@ -23,4 +23,4 @@ window.QCHAT = {
   csrf: @json(csrf_token())
 };
 </script>
-<script src="{{ asset('js/chat.js') }}?v=3" defer></script>
+<script src="{{ asset('js/chat.js') }}?v=4" defer></script>

@@ -68,7 +68,7 @@ section{padding:96px 0}
   .burger{display:block;margin-left:auto}
   .header-actions .btn-request{display:none}
 }
-@media(max-width:560px){.brand small{display:none}.topbar .tb-right{display:none}}
+@media(max-width:560px){.brand small{display:none}.topbar .tb-right{display:none}.topbar .tb-left a[href^="mailto"]{display:none}.topbar .tb-left{gap:14px}}
 
 /* hero */
 .hero{position:relative;background:radial-gradient(1200px 600px at 85% 20%,rgba(184,151,90,.18),transparent 60%),linear-gradient(160deg,var(--g900),var(--g700));color:#e7eee9;padding:110px 0 120px;overflow:hidden}
