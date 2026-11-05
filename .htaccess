@@ -1,0 +1,11 @@
+# SmartApe / shared hosting fallback: if the domain's document root is the
+# project folder (not /public), send everything into /public.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(\.env|\.git|composer\.(json|lock)|artisan|storage|vendor|database|config|app|routes|bootstrap|resources|tests)(/|$) - [F,L]
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
