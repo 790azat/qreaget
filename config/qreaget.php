@@ -29,5 +29,7 @@ return [
     'install_key' => env('INSTALL_KEY'),
 
     // Secret part of the Telegram webhook URL.
-    'telegram_webhook_secret' => env('TELEGRAM_WEBHOOK_SECRET', substr(hash('sha256', (string) env('APP_KEY')), 0, 32)),
+    // An empty TELEGRAM_WEBHOOK_SECRET= line (as in the .env examples) must also fall back,
+    // otherwise route('telegram.webhook') throws and the Settings page crashes.
+    'telegram_webhook_secret' => env('TELEGRAM_WEBHOOK_SECRET') ?: substr(hash('sha256', (string) env('APP_KEY')), 0, 32),
 ];
