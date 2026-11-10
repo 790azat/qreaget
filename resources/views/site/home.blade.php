@@ -40,6 +40,9 @@
       <span class="label">{{ __('site.about.label') }}</span>
       <h2>{{ __('site.about.title') }}</h2>
       <p class="muted" style="font-size:1.07rem">{{ lsetting('about') ?: __('site.about.text') }}</p>
+      <div class="stats">
+        @foreach(__('site.about.stats') as $s)<div class="stat"><b>{{ $s[0] }}</b><span>{{ $s[1] }}</span></div>@endforeach
+      </div>
     </div>
     <div class="about-visual reveal"><img src="{{ asset('images/logo.jpg') }}" alt=""></div>
   </div>
@@ -60,6 +63,20 @@
           <h3>{{ $d->t('name') }}</h3>
           <p>{{ $d->t('description') }}</p>
         </div>
+      @endforeach
+    </div>
+  </div>
+</section>
+
+<section class="audience">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="label">{{ __('site.audience.label') }}</span>
+      <h2>{{ __('site.audience.title') }}</h2>
+    </div>
+    <div class="aud-grid">
+      @foreach(__('site.audience.items') as $i => $a)
+        <div class="aud reveal"><x-icon :name="['user','briefcase','factory','ship'][$i]" size="34"/><h3>{{ $a[0] }}</h3><p>{{ $a[1] }}</p></div>
       @endforeach
     </div>
   </div>
