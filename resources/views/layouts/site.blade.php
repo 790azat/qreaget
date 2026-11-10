@@ -55,6 +55,9 @@
   </div>
 </header>
 
+@if(session('success'))<div class="alert alert-success flash"><x-icon name="check" size="18"/> {{ session('success') }}</div>@endif
+@if(session('error'))<div class="alert alert-error flash">{{ session('error') }}</div>@endif
+
 <main>@yield('content')</main>
 
 <footer class="footer">

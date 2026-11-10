@@ -3,7 +3,10 @@
 namespace App\Providers;
 
 use App\Models\Department;
+use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -22,6 +25,8 @@ class AppServiceProvider extends ServiceProvider
         }
 
         $this->autoInstall();
+
+        RateLimiter::for('forms', fn (Request $r) => Limit::perMinute(8)->by('forms|'.$r->path().'|'.$r->ip()));
 
         View::composer('layouts.site', function ($view) {
             static $deps = null;

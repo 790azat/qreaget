@@ -16,5 +16,5 @@
       <div class="map"><iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q={{ urlencode(setting('map_query')) }}&z=16&output=embed" title="Map"></iframe></div>
     </div>
   </div>
-  <div>{{-- TODO: request form --}}</div>
+  <div>@include('partials.request-form', ['departments' => $departments])</div>
 </div>
