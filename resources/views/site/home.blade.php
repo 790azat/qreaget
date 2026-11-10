@@ -65,6 +65,20 @@
   </div>
 </section>
 
+<section class="process" id="process">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="label">{{ __('site.process.label') }}</span>
+      <h2>{{ __('site.process.title') }}</h2>
+    </div>
+    <div class="steps">
+      @foreach(__('site.process.steps') as $s)
+        <div class="step reveal"><b>{{ $s[0] }}</b><span>{{ $s[1] }}</span></div>
+      @endforeach
+    </div>
+  </div>
+</section>
+
 <section class="contact" id="contact">
   <div class="container">
     @include('site._contact-block')

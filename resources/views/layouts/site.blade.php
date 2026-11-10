@@ -40,6 +40,7 @@
     <nav class="nav">
       <a href="{{ route('home') }}#about">{{ __('site.nav.about') }}</a>
       <a href="{{ route('home') }}#services">{{ __('site.nav.services') }}</a>
+      <a href="{{ route('home') }}#process">{{ __('site.nav.process') }}</a>
       <a href="{{ route('home') }}#contact">{{ __('site.nav.contact') }}</a>
     </nav>
     <div class="header-actions">
