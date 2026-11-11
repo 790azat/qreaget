@@ -39,7 +39,7 @@
     <button class="burger" aria-label="Menu" onclick="document.querySelector('.nav').classList.toggle('open')"><x-icon name="menu" size="28"/></button>
     <nav class="nav">
       <a href="{{ route('home') }}#about">{{ __('site.nav.about') }}</a>
-      <a href="{{ route('home') }}#services">{{ __('site.nav.services') }}</a>
+      <a href="{{ route('services') }}" class="{{ request()->routeIs('service*') ? 'active' : '' }}">{{ __('site.nav.services') }}</a>
       <a href="{{ route('home') }}#process">{{ __('site.nav.process') }}</a>
       <a href="{{ route('home') }}#contact">{{ __('site.nav.contact') }}</a>
     </nav>

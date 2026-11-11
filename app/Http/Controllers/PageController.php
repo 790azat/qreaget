@@ -13,6 +13,21 @@ class PageController extends Controller
         ]);
     }
 
+    public function services()
+    {
+        return view('site.services', ['departments' => $this->departments()]);
+    }
+
+    public function service(string $slug)
+    {
+        $department = Department::where('slug', $slug)->where('is_active', true)->firstOrFail();
+
+        return view('site.service', [
+            'department' => $department,
+            'departments' => $this->departments(),
+        ]);
+    }
+
     public function lang(string $locale)
     {
         if (array_key_exists($locale, config('qreaget.locales'))) {

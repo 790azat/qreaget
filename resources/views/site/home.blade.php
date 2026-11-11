@@ -8,7 +8,7 @@
       <p class="lead">{{ lsetting('hero_text') ?: __('site.hero.text') }}</p>
       <div class="actions">
         <a href="#contact" class="btn btn-gold">{{ __('site.hero.cta') }} <x-icon name="arrow" size="18"/></a>
-        <a href="#services" class="btn btn-ghost">{{ __('site.hero.cta2') }}</a>
+        <a href="{{ route('services') }}" class="btn btn-ghost">{{ __('site.hero.cta2') }}</a>
       </div>
       <div class="tag"><x-icon name="shield" size="18"/> {{ __('site.hero.tag') }}</div>
     </div>
@@ -57,12 +57,13 @@
     </div>
     <div class="svc-grid">
       @foreach($departments as $i => $d)
-        <div class="svc reveal">
+        <a href="{{ route('service', $d->slug) }}" class="svc reveal">
           <span class="num n">{{ str_pad($i + 1, 2, '0', STR_PAD_LEFT) }}</span>
           <span class="ic"><x-icon :name="$d->icon" size="26"/></span>
           <h3>{{ $d->t('name') }}</h3>
           <p>{{ $d->t('description') }}</p>
-        </div>
+          <span class="more">{{ __('site.services.more') }} <x-icon name="arrow" size="16"/></span>
+        </a>
       @endforeach
     </div>
   </div>
