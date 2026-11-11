@@ -9,11 +9,7 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        // first batch of directions, the rest will be added later
-        $ready = ['construction', 'trace', 'psychological', 'handwriting-documents', 'road-traffic'];
-        $departments = array_values(array_filter($this->departments(), fn ($d) => in_array($d['slug'], $ready, true)));
-
-        foreach ($departments as $i => $d) {
+        foreach ($this->departments() as $i => $d) {
             Department::firstOrCreate(['slug' => $d['slug']], $d + ['sort' => ($i + 1) * 10]);
         }
     }
