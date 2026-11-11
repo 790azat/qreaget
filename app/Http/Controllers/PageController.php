@@ -28,6 +28,11 @@ class PageController extends Controller
         ]);
     }
 
+    public function contact()
+    {
+        return view('site.contact', ['departments' => $this->departments()]);
+    }
+
     public function lang(string $locale)
     {
         if (array_key_exists($locale, config('qreaget.locales'))) {

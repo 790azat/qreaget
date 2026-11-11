@@ -13,6 +13,6 @@
       </a>
     @endforeach
   </div>
-  <div class="cta-band" style="margin-top:56px"><h2>{{ __('site.contact.title') }}</h2><a href="{{ route('home') }}#contact" class="btn">{{ __('site.nav.request') }}</a></div>
+  <div class="cta-band" style="margin-top:56px"><h2>{{ __('site.contact.title') }}</h2><a href="{{ route('contact') }}#form" class="btn">{{ __('site.nav.request') }}</a></div>
 </div></section>
 @endsection

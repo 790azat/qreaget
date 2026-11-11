@@ -7,7 +7,7 @@
       <h1>{{ lsetting('hero_title') ?: __('site.hero.title') }} <em>{{ lsetting('hero_title') ? '' : __('site.hero.title_em') }}</em></h1>
       <p class="lead">{{ lsetting('hero_text') ?: __('site.hero.text') }}</p>
       <div class="actions">
-        <a href="#contact" class="btn btn-gold">{{ __('site.hero.cta') }} <x-icon name="arrow" size="18"/></a>
+        <a href="{{ route('contact') }}#form" class="btn btn-gold">{{ __('site.hero.cta') }} <x-icon name="arrow" size="18"/></a>
         <a href="{{ route('services') }}" class="btn btn-ghost">{{ __('site.hero.cta2') }}</a>
       </div>
       <div class="tag"><x-icon name="shield" size="18"/> {{ __('site.hero.tag') }}</div>
@@ -99,6 +99,10 @@
 
 <section class="contact" id="contact">
   <div class="container">
+    <div class="cta-band reveal" style="margin-bottom:72px">
+      <h2>{{ __('site.contact.title') }}</h2>
+      <a href="{{ tel_href(setting('phone_1')) }}" class="btn"><x-icon name="phone" size="18"/> {{ setting('phone_1') }}</a>
+    </div>
     @include('site._contact-block')
   </div>
 </section>

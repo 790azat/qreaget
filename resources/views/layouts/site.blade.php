@@ -24,7 +24,7 @@
       <a href="mailto:{{ setting('email') }}"><x-icon name="mail" size="14"/> {{ setting('email') }}</a>
     </div>
     <div class="tb-right">
-      <a href="{{ route('home') }}#contact"><x-icon name="pin" size="14"/> {{ lsetting('address') }}</a>
+      <a href="{{ route('contact') }}"><x-icon name="pin" size="14"/> {{ lsetting('address') }}</a>
       @if(setting('instagram'))<a href="{{ setting('instagram') }}" target="_blank" rel="noopener" aria-label="Instagram"><x-icon name="instagram" size="15"/></a>@endif
       @if(setting('facebook'))<a href="{{ setting('facebook') }}" target="_blank" rel="noopener" aria-label="Facebook"><x-icon name="facebook" size="15"/></a>@endif
     </div>
@@ -41,7 +41,7 @@
       <a href="{{ route('home') }}#about">{{ __('site.nav.about') }}</a>
       <a href="{{ route('services') }}" class="{{ request()->routeIs('service*') ? 'active' : '' }}">{{ __('site.nav.services') }}</a>
       <a href="{{ route('home') }}#process">{{ __('site.nav.process') }}</a>
-      <a href="{{ route('home') }}#contact">{{ __('site.nav.contact') }}</a>
+      <a href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'active' : '' }}">{{ __('site.nav.contact') }}</a>
     </nav>
     <div class="header-actions">
       @if(count(config('qreaget.locales')) > 1)
@@ -51,7 +51,7 @@
         @endforeach
       </div>
       @endif
-      <a href="{{ route('home') }}#contact" class="btn btn-primary btn-sm btn-request">{{ __('site.nav.request') }}</a>
+      <a href="{{ route('contact') }}#form" class="btn btn-primary btn-sm btn-request">{{ __('site.nav.request') }}</a>
     </div>
   </div>
 </header>
@@ -63,8 +63,40 @@
 
 <footer class="footer">
   <div class="container">
+    <div class="grid">
+      <div>
+        <a href="{{ route('home') }}" class="brand" style="margin-bottom:16px"><img src="{{ asset('images/logo.png') }}" alt=""><span><b>{{ setting('site_name') }}</b></span></a>
+        <p>{{ __('site.tagline') }}. {{ __('site.hero.tag') }}.</p>
+        <div class="socials">
+          @if(setting('instagram'))<a href="{{ setting('instagram') }}" target="_blank" rel="noopener" aria-label="Instagram"><x-icon name="instagram" size="18"/></a>@endif
+          @if(setting('facebook'))<a href="{{ setting('facebook') }}" target="_blank" rel="noopener" aria-label="Facebook"><x-icon name="facebook" size="18"/></a>@endif
+        </div>
+      </div>
+      <div>
+        <h4>{{ __('site.nav.services') }}</h4>
+        @foreach(($footerDepartments ?? collect())->take(6) as $d)
+          <a href="{{ route('service', $d->slug) }}">{{ $d->t('name') }}</a>
+        @endforeach
+        <a href="{{ route('services') }}">{{ __('site.services.all') }} →</a>
+      </div>
+      <div>
+        <h4>{{ __('site.footer.links') }}</h4>
+        <a href="{{ route('home') }}#about">{{ __('site.nav.about') }}</a>
+        <a href="{{ route('home') }}#process">{{ __('site.nav.process') }}</a>
+        <a href="{{ route('services') }}">{{ __('site.nav.services') }}</a>
+        <a href="{{ route('contact') }}">{{ __('site.nav.contact') }}</a>
+      </div>
+      <div>
+        <h4>{{ __('site.nav.contact') }}</h4>
+        <a href="{{ tel_href(setting('phone_1')) }}">{{ setting('phone_1') }}</a>
+        <a href="{{ tel_href(setting('phone_2')) }}">{{ setting('phone_2') }}</a>
+        <a href="mailto:{{ setting('email') }}">{{ setting('email') }}</a>
+        <span>{{ lsetting('address') }}</span><br>
+        <span>{{ lsetting('hours') }}</span>
+      </div>
+    </div>
     <div class="bottom">
-      <span>© {{ date('Y') }} «{{ setting('site_name') }}» {{ __('site.tagline') }}</span>
+      <span>© {{ date('Y') }} «{{ setting('site_name') }}» {{ __('site.tagline') }}. {{ __('site.footer.rights') }}</span>
       <span>{{ lsetting('address') }}</span>
     </div>
   </div>
