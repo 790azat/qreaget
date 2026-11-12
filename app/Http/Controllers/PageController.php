@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Department;
+use App\Models\Faq;
 
 class PageController extends Controller
 {
@@ -10,6 +11,7 @@ class PageController extends Controller
     {
         return view('site.home', [
             'departments' => $this->departments(),
+            'faqs' => $this->safe(fn () => Faq::active()->get()),
         ]);
     }
 

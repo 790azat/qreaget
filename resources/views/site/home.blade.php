@@ -97,6 +97,19 @@
   </div>
 </section>
 
+@if($faqs->count())
+<section class="faq">
+  <div class="container">
+    <div class="section-head center reveal"><span class="label">{{ __('site.faq.label') }}</span><h2>{{ __('site.faq.title') }}</h2></div>
+    <div class="faq-list">
+      @foreach($faqs as $f)
+        <details class="reveal"><summary>{{ $f->t('question') }}</summary><p>{{ $f->t('answer') }}</p></details>
+      @endforeach
+    </div>
+  </div>
+</section>
+@endif
+
 <section class="contact" id="contact">
   <div class="container">
     <div class="cta-band reveal" style="margin-bottom:72px">
