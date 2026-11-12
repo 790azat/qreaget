@@ -17,10 +17,15 @@ class InstallController extends Controller
 
         @set_time_limit(300);
         $out = [];
-        Artisan::call('migrate', ['--force' => true]);
-        $out[] = Artisan::output();
-        Artisan::call('db:seed', ['--force' => true]);
-        $out[] = Artisan::output();
+        try {
+            Artisan::call('migrate', ['--force' => true]);
+            $out[] = Artisan::output();
+            Artisan::call('db:seed', ['--force' => true]);
+            $out[] = Artisan::output();
+        } catch (\Throwable $e) {
+            // Only reachable with the secret install key: show why it failed.
+            return response('<pre>Install failed: '.e(get_class($e).': '.$e->getMessage()).'</pre>', 500);
+        }
 
         return response('<pre>'.e(implode("\n", $out))."\nDone. Remove INSTALL_KEY from the environment now.</pre>");
     }
