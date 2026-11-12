@@ -16,6 +16,9 @@ return [
         'instagram' => 'https://www.instagram.com/qreaget.expertise',
         'facebook' => 'https://www.facebook.com/share/1dnnSegKQX/',
         'map_query' => 'Arshakunyats 5, Yerevan',
+        'telegram_bot_token' => env('TELEGRAM_BOT_TOKEN'),
+        'telegram_chat_id' => env('TELEGRAM_CHAT_ID'),
+        'notify_requests' => '1',
     ],
 
     // ru / en will be enabled once translations are done

@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\RequestEvent;
 use App\Models\ServiceRequest;
+use App\Services\Telegram;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
 class RequestController extends Controller
 {
-    public function store(Request $request)
+    public function store(Request $request, Telegram $telegram)
     {
         // Honeypot against bots
         if (filled($request->input('website'))) {
@@ -37,6 +38,8 @@ class RequestController extends Controller
             'body' => null,
             'visible_to_client' => true,
         ]);
+
+        $telegram->notifyRequest($sr->fresh('department'));
 
         return back()->with('success', __('site.form.sent_number', ['number' => $sr->fresh()->number]));
     }
