@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\DB;
 
 /**
  * One-click installer for hosts without SSH (Vercel, shared hosting).
@@ -16,6 +17,13 @@ class InstallController extends Controller
         abort_if($expected === '' || ! hash_equals($expected, $key), 404);
 
         @set_time_limit(300);
+        // Neon's pooled endpoint (PgBouncer) breaks schema migrations inside
+        // transactions; run the installer over the direct connection instead.
+        if ($direct = env('DATABASE_URL_UNPOOLED') ?: env('POSTGRES_URL_NON_POOLING')) {
+            config(['database.connections.pgsql.url' => $direct]);
+            DB::purge('pgsql');
+        }
+
         $out = [];
         try {
             Artisan::call('migrate', ['--force' => true]);
