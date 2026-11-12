@@ -97,6 +97,18 @@
   </div>
 </section>
 
+@if($articles->count())
+<section class="articles">
+  <div class="container">
+    <div class="section-head reveal" style="display:flex;justify-content:space-between;align-items:end;max-width:none;gap:20px;flex-wrap:wrap">
+      <div><span class="label">{{ __('site.articles.label') }}</span><h2 style="margin:0">{{ __('site.articles.title') }}</h2></div>
+      <a href="{{ route('articles') }}" class="btn btn-outline btn-sm">{{ __('site.articles.all') }}</a>
+    </div>
+    <div class="art-grid">@foreach($articles as $a) @include('site._article-card', ['a' => $a]) @endforeach</div>
+  </div>
+</section>
+@endif
+
 @if($faqs->count())
 <section class="faq">
   <div class="container">

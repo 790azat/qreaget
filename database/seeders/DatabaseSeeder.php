@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Article;
 use App\Models\Department;
 use App\Models\Faq;
 use Illuminate\Database\Seeder;
@@ -17,6 +18,12 @@ class DatabaseSeeder extends Seeder
         if (Faq::count() === 0) {
             foreach ($this->faqs() as $i => $f) {
                 Faq::create($f + ['sort' => $i]);
+            }
+        }
+
+        if (Article::count() === 0) {
+            foreach ($this->articles() as $i => $a) {
+                Article::create($a + ['published_at' => now()->subDays($i * 5)]);
             }
         }
     }
@@ -123,6 +130,42 @@ class DatabaseSeeder extends Seeder
                 'answer_hy' => 'Նկարագրեք ձեր հարցը, և մեր մասնագետները կառաջարկեն համապատասխան ուղղությունը։',
                 'answer_ru' => 'Опишите ваш вопрос, и наши специалисты подскажут подходящее направление.',
                 'answer_en' => 'Describe your question and our specialists will suggest the right direction.',
+            ],
+        ];
+    }
+
+    private function articles(): array
+    {
+        return [
+            [
+                'slug' => 'before-contacting-an-expert',
+                'title_hy' => 'Ինչ պատրաստել փորձագետին դիմելուց առաջ', 'title_ru' => 'Что подготовить перед обращением к эксперту', 'title_en' => 'What to prepare before contacting an expert',
+                'excerpt_hy' => 'Հստակ ձևակերպված հարցերը և ամբողջական նյութերը արագացնում են հետազոտությունը։',
+                'excerpt_ru' => 'Чётко сформулированные вопросы и полный комплект материалов ускоряют исследование.',
+                'excerpt_en' => 'Clearly formulated questions and complete materials speed up the research.',
+                'body_hy' => "Նախքան դիմելը ձևակերպեք այն հարցերը, որոնց պատասխանը ցանկանում եք ստանալ։\n\nՀավաքեք առկա փաստաթղթերը, լուսանկարները և այլ նյութեր։ Նշեք ժամկետները, եթե գործը դատարանում է։\n\nՄեր մասնագետները կօգնեն ճշգրտել հարցերը նախնական քննարկման ընթացքում։",
+                'body_ru' => "Перед обращением сформулируйте вопросы, на которые вы хотите получить ответ.\n\nСоберите имеющиеся документы, фотографии и другие материалы. Укажите сроки, если дело находится в суде.\n\nНаши специалисты помогут уточнить вопросы на предварительной консультации.",
+                'body_en' => "Before contacting us, formulate the questions you want answered.\n\nCollect the available documents, photos and other materials. Mention deadlines if the case is in court.\n\nOur specialists will help refine the questions during the initial consultation.",
+            ],
+            [
+                'slug' => 'how-to-choose-expertise',
+                'title_hy' => 'Ինչպես ընտրել փորձաքննության ուղղությունը', 'title_ru' => 'Как выбрать направление экспертизы', 'title_en' => 'How to choose the right expertise',
+                'excerpt_hy' => 'Յուրաքանչյուր խնդիր պահանջում է իր մասնագիտական մոտեցումը։',
+                'excerpt_ru' => 'Каждая задача требует своего профессионального подхода.',
+                'excerpt_en' => 'Every problem needs its own professional approach.',
+                'body_hy' => "Փորձաքննության տեսակը կախված է այն հարցից, որը պետք է պարզաբանել։ Օրինակ՝ ստորագրության իսկությունը պարզվում է ձեռագրաբանական, իսկ շինարարական աշխատանքների որակը՝ շինարարատեխնիկական փորձաքննությամբ։\n\nԵթե վստահ չեք, զանգահարեք մեզ։",
+                'body_ru' => "Вид экспертизы зависит от вопроса, который нужно разрешить. Например, подлинность подписи устанавливает почерковедческая экспертиза, а качество строительных работ — строительно-техническая.\n\nЕсли не уверены — позвоните нам.",
+                'body_en' => "The type of expertise depends on the question to be resolved. For example, a signature's authenticity is a handwriting matter, while the quality of construction works is a construction-technical one.\n\nNot sure? Give us a call.",
+            ],
+            [
+                'slug' => 'how-the-process-works',
+                'title_hy' => 'Ինչպես է ընթանում հետազոտությունը', 'title_ru' => 'Как проходит исследование', 'title_en' => 'How the research process works',
+                'excerpt_hy' => 'Հայտից մինչև եզրակացություն՝ հինգ հստակ քայլ։',
+                'excerpt_ru' => 'От заявки до заключения — пять понятных шагов.',
+                'excerpt_en' => 'From request to conclusion in five clear steps.',
+                'body_hy' => "1. Հայտի ընդունում\n2. Նախնական ուսումնասիրություն\n3. Պայմանների համաձայնեցում\n4. Հետազոտության իրականացում\n5. Արդյունքների տրամադրում",
+                'body_ru' => "1. Приём заявки\n2. Предварительное изучение\n3. Согласование условий\n4. Проведение исследования\n5. Выдача результатов",
+                'body_en' => "1. Request intake\n2. Preliminary review\n3. Agreeing on terms\n4. Carrying out the research\n5. Delivering the results",
             ],
         ];
     }

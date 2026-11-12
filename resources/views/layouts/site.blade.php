@@ -41,6 +41,7 @@
       <a href="{{ route('home') }}#about">{{ __('site.nav.about') }}</a>
       <a href="{{ route('services') }}" class="{{ request()->routeIs('service*') ? 'active' : '' }}">{{ __('site.nav.services') }}</a>
       <a href="{{ route('home') }}#process">{{ __('site.nav.process') }}</a>
+      <a href="{{ route('articles') }}" class="{{ request()->routeIs('article*') ? 'active' : '' }}">{{ __('site.nav.articles') }}</a>
       <a href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'active' : '' }}">{{ __('site.nav.contact') }}</a>
     </nav>
     <div class="header-actions">
@@ -84,6 +85,7 @@
         <a href="{{ route('home') }}#about">{{ __('site.nav.about') }}</a>
         <a href="{{ route('home') }}#process">{{ __('site.nav.process') }}</a>
         <a href="{{ route('services') }}">{{ __('site.nav.services') }}</a>
+        <a href="{{ route('articles') }}">{{ __('site.nav.articles') }}</a>
         <a href="{{ route('contact') }}">{{ __('site.nav.contact') }}</a>
       </div>
       <div>

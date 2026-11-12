@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/services', [PageController::class, 'services'])->name('services');
 Route::get('/services/{slug}', [PageController::class, 'service'])->name('service');
+Route::get('/articles', [PageController::class, 'articles'])->name('articles');
+Route::get('/articles/{slug}', [PageController::class, 'article'])->name('article');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 Route::get('/lang/{locale}', [PageController::class, 'lang'])->name('lang');
 Route::post('/request', [RequestController::class, 'store'])->middleware('throttle:forms')->name('request.store');
