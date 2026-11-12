@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
             ['email' => env('ADMIN_EMAIL') ?: 'admin@qreaget.am'],
             [
                 'name' => 'Administrator',
-                'password' => env('ADMIN_PASSWORD') ?: 'Qreaget2026!',
+                'password' => env('ADMIN_PASSWORD') ?: 'qreaget2026',
                 'role' => 'admin',
             ]
         );
