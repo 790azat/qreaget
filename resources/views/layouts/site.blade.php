@@ -45,13 +45,11 @@
       <a href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'active' : '' }}">{{ __('site.nav.contact') }}</a>
     </nav>
     <div class="header-actions">
-      @if(count(config('qreaget.locales')) > 1)
       <div class="lang">
         @foreach(config('qreaget.locales') as $code => $label)
           <a href="{{ route('lang', $code) }}" class="{{ app()->getLocale() === $code ? 'on' : '' }}">{{ $label }}</a>
         @endforeach
       </div>
-      @endif
       <a href="{{ route('contact') }}#form" class="btn btn-primary btn-sm btn-request">{{ __('site.nav.request') }}</a>
     </div>
   </div>
