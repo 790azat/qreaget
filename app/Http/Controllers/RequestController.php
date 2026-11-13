@@ -29,6 +29,7 @@ class RequestController extends Controller
         unset($data['agree']);
 
         $sr = ServiceRequest::create($data + [
+            'user_id' => $request->user()?->id,
             'locale' => app()->getLocale(),
             'ip' => $request->ip(),
         ]);

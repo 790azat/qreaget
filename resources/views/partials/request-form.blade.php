@@ -5,9 +5,9 @@
   @if ($errors->any())<div class="alert alert-error">{{ $errors->first() }}</div>@endif
   <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off">
   <div class="form-grid">
-    <div class="field"><label>{{ __('site.form.name') }} *</label><input name="name" required maxlength="120" value="{{ old('name') }}"></div>
-    <div class="field"><label>{{ __('site.form.phone') }} *</label><input name="phone" type="tel" required maxlength="40" value="{{ old('phone') }}" placeholder="+374 ..."></div>
-    <div class="field"><label>{{ __('site.form.email') }}</label><input name="email" type="email" maxlength="150" value="{{ old('email') }}"></div>
+    <div class="field"><label>{{ __('site.form.name') }} *</label><input name="name" required maxlength="120" value="{{ old('name', auth()->user()?->name) }}"></div>
+    <div class="field"><label>{{ __('site.form.phone') }} *</label><input name="phone" type="tel" required maxlength="40" value="{{ old('phone', auth()->user()?->phone) }}" placeholder="+374 ..."></div>
+    <div class="field"><label>{{ __('site.form.email') }}</label><input name="email" type="email" maxlength="150" value="{{ old('email', auth()->user()?->email) }}"></div>
     <div class="field"><label>{{ __('site.form.client_type') }}</label>
       <select name="client_type">
         <option value="">—</option>
@@ -26,5 +26,10 @@
       <span class="note"><x-icon name="lock" size="14"/> {{ __('site.form.warning') }}</span>
       <button class="btn btn-primary">{{ __('site.form.submit') }} <x-icon name="arrow" size="18"/></button>
     </div>
+    @guest
+      @if(setting('registration_enabled') === '1')
+        <div class="full note"><x-icon name="user" size="14"/> <a href="{{ route('register') }}">{{ __('site.form.registered_hint') }}</a></div>
+      @endif
+    @endguest
   </div>
 </form>

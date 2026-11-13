@@ -27,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
 
         $this->autoInstall();
 
+        RateLimiter::for('login', fn (Request $r) => Limit::perMinute(10)->by('login|'.$r->ip().'|'.strtolower((string) $r->input('email'))));
         RateLimiter::for('forms', fn (Request $r) => Limit::perMinute(8)->by('forms|'.$r->path().'|'.$r->ip()));
 
         Paginator::defaultView('partials.pagination');

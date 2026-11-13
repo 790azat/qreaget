@@ -43,6 +43,12 @@
       <a href="{{ route('home') }}#process">{{ __('site.nav.process') }}</a>
       <a href="{{ route('articles') }}" class="{{ request()->routeIs('article*') ? 'active' : '' }}">{{ __('site.nav.articles') }}</a>
       <a href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'active' : '' }}">{{ __('site.nav.contact') }}</a>
+      @auth
+        <a href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit()"><x-icon name="logout" size="16"/> {{ __('site.nav.logout') }}</a>
+        <form id="logout-form" method="POST" action="{{ route('logout') }}" hidden>@csrf</form>
+      @else
+        <a href="{{ route('login') }}"><x-icon name="user" size="16"/> {{ __('site.nav.login') }}</a>
+      @endauth
     </nav>
     <div class="header-actions">
       <div class="lang">
@@ -85,6 +91,8 @@
         <a href="{{ route('services') }}">{{ __('site.nav.services') }}</a>
         <a href="{{ route('articles') }}">{{ __('site.nav.articles') }}</a>
         <a href="{{ route('contact') }}">{{ __('site.nav.contact') }}</a>
+        @if(setting('registration_enabled') === '1')<a href="{{ route('register') }}">{{ __('site.nav.register') }}</a>@endif
+        @guest<a href="{{ route('login') }}">{{ __('site.nav.login') }}</a>@endguest
       </div>
       <div>
         <h4>{{ __('site.nav.contact') }}</h4>
