@@ -21,8 +21,7 @@ return [
         'notify_requests' => '1',
     ],
 
-    // en will be enabled once the translation is done
-    'locales' => ['hy' => 'Հայ', 'ru' => 'Рус'],
+    'locales' => ['hy' => 'Հայ', 'ru' => 'Рус', 'en' => 'Eng'],
 
     // Key that protects /install/{key} (runs migrations + seeding without SSH).
     'install_key' => env('INSTALL_KEY'),
