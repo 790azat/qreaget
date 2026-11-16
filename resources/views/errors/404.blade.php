@@ -1,0 +1,5 @@
+@extends('errors.layout')
+@section('code', '404')
+@section('hy', 'Էջը չի գտնվել')
+@section('ru', 'Страница не найдена')
+@section('en', 'Page not found')

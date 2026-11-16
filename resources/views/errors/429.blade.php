@@ -1,0 +1,5 @@
+@extends('errors.layout')
+@section('code', '429')
+@section('hy', 'Չափազանց շատ հարցումներ։ Խնդրում ենք մի փոքր սպասել։')
+@section('ru', 'Слишком много запросов. Подождите минуту и попробуйте снова.')
+@section('en', 'Too many requests. Please wait a minute and try again.')

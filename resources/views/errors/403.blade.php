@@ -1,0 +1,5 @@
+@extends('errors.layout')
+@section('code', '403')
+@section('hy', 'Մուտքն արգելված է')
+@section('ru', 'Доступ запрещён')
+@section('en', 'Access denied')

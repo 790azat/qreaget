@@ -29,5 +29,5 @@ return [
     'install_key' => env('INSTALL_KEY'),
 
     // Secret part of the Telegram webhook URL.
-    'telegram_webhook_secret' => env('TELEGRAM_WEBHOOK_SECRET', substr(hash('sha256', (string) env('APP_KEY')), 0, 32)),
+    'telegram_webhook_secret' => env('TELEGRAM_WEBHOOK_SECRET') ?: substr(hash('sha256', (string) env('APP_KEY')), 0, 32),
 ];

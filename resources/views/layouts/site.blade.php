@@ -71,7 +71,8 @@
     <div class="grid">
       <div>
         <a href="{{ route('home') }}" class="brand" style="margin-bottom:16px"><img src="{{ asset('images/logo.png') }}" alt=""><span><b>{{ setting('site_name') }}</b></span></a>
-        <p>{{ __('site.tagline') }}. {{ __('site.hero.tag') }}.</p>
+        @php $dot = app()->getLocale() === 'hy' ? '։' : '.'; @endphp
+        <p>{{ __('site.tagline') }}{{ $dot }} {{ __('site.hero.tag') }}{{ $dot }}</p>
         <div class="socials">
           @if(setting('instagram'))<a href="{{ setting('instagram') }}" target="_blank" rel="noopener" aria-label="Instagram"><x-icon name="instagram" size="18"/></a>@endif
           @if(setting('facebook'))<a href="{{ setting('facebook') }}" target="_blank" rel="noopener" aria-label="Facebook"><x-icon name="facebook" size="18"/></a>@endif
@@ -103,7 +104,7 @@
       </div>
     </div>
     <div class="bottom">
-      <span>© {{ date('Y') }} «{{ setting('site_name') }}» {{ __('site.tagline') }}. {{ __('site.footer.rights') }}</span>
+      <span>© {{ date('Y') }} «{{ setting('site_name') }}» {{ __('site.tagline') }}{{ $dot ?? '.' }} {{ __('site.footer.rights') }}</span>
       <span>{{ lsetting('address') }}</span>
     </div>
   </div>

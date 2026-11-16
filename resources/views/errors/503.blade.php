@@ -1,0 +1,5 @@
+@extends('errors.layout')
+@section('code', '503')
+@section('hy', 'Կայքը ժամանակավորապես անհասանելի է։')
+@section('ru', 'Сайт временно недоступен.')
+@section('en', 'The site is temporarily unavailable.')
