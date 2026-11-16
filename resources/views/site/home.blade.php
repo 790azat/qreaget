@@ -12,15 +12,6 @@
       </div>
       <div class="tag"><x-icon name="shield" size="18"/> {{ __('site.hero.tag') }}</div>
     </div>
-    <div class="hero-card">
-      <img src="{{ asset('images/logo.png') }}" alt="{{ setting('site_name') }}">
-      <ul>
-        <li><x-icon name="pin" size="20"/> {{ lsetting('address') }}</li>
-        <li><x-icon name="phone" size="20"/> <a href="{{ tel_href(setting('phone_1')) }}" style="color:inherit">{{ setting('phone_1') }}</a>&nbsp;·&nbsp;<a href="{{ tel_href(setting('phone_2')) }}" style="color:inherit">{{ setting('phone_2') }}</a></li>
-        <li><x-icon name="mail" size="20"/> <a href="mailto:{{ setting('email') }}" style="color:inherit">{{ setting('email') }}</a></li>
-        <li><x-icon name="clock" size="20"/> {{ lsetting('hours') }}</li>
-      </ul>
-    </div>
   </div>
 </section>
 
