@@ -13,7 +13,7 @@
 <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@400;500;600;700&family=Noto+Serif+Armenian:wght@500;600;700&family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{{ asset('css/site.css') }}?v=5">
+<link rel="stylesheet" href="{{ asset('css/site.css') }}?v=8">
 {!! setting('analytics_code') !!}
 </head>
 <body>
@@ -34,7 +34,6 @@
 <header class="header">
   <div class="container">
     <a href="{{ route('home') }}" class="brand">
-      <img src="{{ asset('images/logo.png') }}" alt="{{ setting('site_name') }}">
       <span><b>{{ setting('site_name') }}</b><small>{{ __('site.tagline') }}</small></span>
     </a>
     <button class="burger" aria-label="Menu" onclick="document.querySelector('.nav').classList.toggle('open')"><x-icon name="menu" size="28"/></button>
@@ -72,7 +71,8 @@
     <div class="grid">
       <div>
         <a href="{{ route('home') }}" class="brand" style="margin-bottom:16px"><img src="{{ asset('images/logo.png') }}" alt=""><span><b>{{ setting('site_name') }}</b></span></a>
-        <p>{{ __('site.tagline') }}. {{ __('site.hero.tag') }}.</p>
+        @php $dot = app()->getLocale() === 'hy' ? '։' : '.'; @endphp
+        <p>{{ __('site.tagline') }}{{ $dot }} {{ __('site.hero.tag') }}{{ $dot }}</p>
         <div class="socials">
           @if(setting('instagram'))<a href="{{ setting('instagram') }}" target="_blank" rel="noopener" aria-label="Instagram"><x-icon name="instagram" size="18"/></a>@endif
           @if(setting('facebook'))<a href="{{ setting('facebook') }}" target="_blank" rel="noopener" aria-label="Facebook"><x-icon name="facebook" size="18"/></a>@endif
@@ -104,7 +104,7 @@
       </div>
     </div>
     <div class="bottom">
-      <span>© {{ date('Y') }} «{{ setting('site_name') }}» {{ __('site.tagline') }}. {{ __('site.footer.rights') }}</span>
+      <span>© {{ date('Y') }} «{{ setting('site_name') }}» {{ __('site.tagline') }}{{ $dot ?? '.' }} {{ __('site.footer.rights') }}</span>
       <span>{{ lsetting('address') }}</span>
     </div>
   </div>

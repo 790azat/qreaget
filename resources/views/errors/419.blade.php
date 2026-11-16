@@ -1,0 +1,5 @@
+@extends('errors.layout')
+@section('code', '419')
+@section('hy', 'Էջի ժամկետն անցել է։ Թարմացրեք էջը և կրկին փորձեք։')
+@section('ru', 'Страница устарела. Обновите её и попробуйте ещё раз.')
+@section('en', 'The page expired. Please refresh and try again.')

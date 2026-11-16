@@ -1,0 +1,5 @@
+@extends('errors.layout')
+@section('code', '500')
+@section('hy', 'Սերվերի սխալ։ Խնդրում ենք փորձել ավելի ուշ։')
+@section('ru', 'Ошибка сервера. Попробуйте позже.')
+@section('en', 'Server error. Please try again later.')

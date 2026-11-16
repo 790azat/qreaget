@@ -24,7 +24,17 @@ return [
     'about' => [
         'label' => 'About the center',
         'title' => 'Clarity in complex questions',
-        'text' => 'The Qreaget center carries out professional research to resolve questions that require specialised knowledge. Our work rests on studying facts, comparing research results and professional accountability.',
+        'text' => 'QREAGET Centre for Judicial and Independent Expertise LLC carries out expert examinations under decisions of bodies conducting judicial proceedings and criminal prosecution, as well as on commission from state and local self-government bodies, legal entities and individuals. At the heart of the Centre\'s work is providing impartial, scientifically grounded conclusions through the application of special professional knowledge, comprehensive study of the materials and objects under examination, and professional assessment of the results obtained. The company holds a stable position in the field, backed by many years of experience and trust. It has a sufficient material and technical base and is staffed with experts and specialists holding licences and qualification certificates issued by authorised bodies, as well as academic degrees. In addition, the company has signed memoranda and agreements aimed at improving the effectiveness of expert work, sharing scientific potential and material resources, in particular laboratories, and, where necessary, mutually involving specialists in the relevant fields.
+
+Among other types, the company performs construction and technical, commodity, automotive, economic and accounting, materials science, biological, soil, food, electrical, occupational safety, engineering, technological, trace evidence, cultural property, damage assessment, handwriting and document examinations, and more.
+
+Every case receives an individual, professional and impartial approach: each study is carried out with a clear purpose and logic, based on the questions posed, the facts and the specifics of the case.
+
+The company and its experts are responsible for the proper conduct of expert examinations and for the objectivity and soundness of the conclusions they present.
+
+During examinations, any business, banking or personal secrets contained in the materials provided are strictly controlled and never disclosed to third parties, except when requested by authorised bodies in the manner prescribed by the laws of the Republic of Armenia.
+
+We strive to continuously develop our professional capabilities. To that end, we regularly hold training courses, seminars and other professional development activities, aiming to provide a level of expert services that builds an environment of trust.',
         'stats' => [['10', 'fields of expertise'], ['5', 'steps from request to conclusion'], ['24/7', 'online requests']],
     ],
     'services' => [
