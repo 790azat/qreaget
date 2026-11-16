@@ -2,7 +2,7 @@
 @section('title', $department->t('name'))
 @section('description', \Illuminate\Support\Str::limit($department->t('description'), 160))
 @section('content')
-<div class="page-hero"><div class="container">
+<div class="page-hero{{ $department->image_url ? ' has-photo' : '' }}" @if($department->image_url) style="--hero-img:url('{{ $department->image_url }}')" @endif><div class="container">
   <div class="crumbs"><a href="{{ route('home') }}">{{ __('site.nav.home') }}</a> / <a href="{{ route('services') }}">{{ __('site.nav.services') }}</a> / {{ $department->t('name') }}</div>
   <h1>{{ $department->t('name') }}</h1>
 </div></div>

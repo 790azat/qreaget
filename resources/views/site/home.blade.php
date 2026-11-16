@@ -39,12 +39,12 @@
     <div class="reveal">
       <span class="label">{{ __('site.about.label') }}</span>
       <h2>{{ __('site.about.title') }}</h2>
-      <p class="muted" style="font-size:1.07rem">{{ lsetting('about') ?: __('site.about.text') }}</p>
+      <div class="about-text muted">@foreach(preg_split('/\R{2,}/', trim(lsetting('about') ?: __('site.about.text'))) as $para)<p>{{ $para }}</p>@endforeach</div>
       <div class="stats">
         @foreach(__('site.about.stats') as $s)<div class="stat"><b>{{ $s[0] }}</b><span>{{ $s[1] }}</span></div>@endforeach
       </div>
     </div>
-    <div class="about-visual reveal"><img src="{{ asset('images/logo.jpg') }}" alt=""></div>
+    <div class="about-visual reveal has-photo"><img src="{{ asset('images/about.jpg') }}" alt="{{ __('site.about.label') }}" loading="lazy"></div>
   </div>
 </section>
 
@@ -57,7 +57,8 @@
     </div>
     <div class="svc-grid">
       @foreach($departments as $i => $d)
-        <a href="{{ route('service', $d->slug) }}" class="svc reveal">
+        <a href="{{ route('service', $d->slug) }}" class="svc reveal {{ $d->image_url ? 'has-img' : '' }}">
+          @if($d->image_url)<span class="svc-img"><img src="{{ $d->image_url }}" alt="{{ $d->t('name') }}" loading="lazy"></span>@endif
           <span class="num n">{{ str_pad($i + 1, 2, '0', STR_PAD_LEFT) }}</span>
           <span class="ic"><x-icon :name="$d->icon" size="26"/></span>
           <h3>{{ $d->t('name') }}</h3>

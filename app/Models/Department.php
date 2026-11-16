@@ -19,6 +19,14 @@ class Department extends Model
         return $q->where('is_active', true)->orderBy('sort')->orderBy('id');
     }
 
+    /** Photo for the department, if one is shipped in public/images/departments/{slug}.jpg */
+    public function getImageUrlAttribute(): ?string
+    {
+        $rel = 'images/departments/'.$this->slug.'.jpg';
+
+        return is_file(public_path($rel)) ? asset($rel) : null;
+    }
+
     public function serviceRequests(): HasMany
     {
         return $this->hasMany(ServiceRequest::class);

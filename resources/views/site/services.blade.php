@@ -5,7 +5,8 @@
 <section class="page"><div class="container">
   <div class="svc-grid">
     @foreach($departments as $i => $d)
-      <a href="{{ route('service', $d->slug) }}" class="svc">
+      <a href="{{ route('service', $d->slug) }}" class="svc {{ $d->image_url ? 'has-img' : '' }}">
+        @if($d->image_url)<span class="svc-img"><img src="{{ $d->image_url }}" alt="{{ $d->t('name') }}" loading="lazy"></span>@endif
         <span class="num n">{{ str_pad($i + 1, 2, '0', STR_PAD_LEFT) }}</span>
         <span class="ic"><x-icon :name="$d->icon" size="26"/></span>
         <h3>{{ $d->t('name') }}</h3><p>{{ $d->t('description') }}</p>
