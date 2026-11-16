@@ -278,9 +278,17 @@ table.t tr:last-child td{border-bottom:0}
 @media(max-width:520px){.footer .grid{grid-template-columns:1fr}}
 
 /* CTA band */
-.cta-band{background:linear-gradient(120deg,var(--gold),#9c7c43);color:#fff;border-radius:22px;padding:44px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
-.cta-band h2{color:#fff;margin:0;font-size:clamp(1.4rem,2.6vw,2rem)}
-.cta-band .btn{background:#fff;color:var(--g900)}
+.cta-band{position:relative;border-radius:22px;padding:48px;display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap;color:var(--ink);background:repeating-linear-gradient(135deg,rgba(184,151,90,.09) 0 1px,transparent 1px 14px),var(--gold-soft);border:1px solid #e7dbc2;border-left:6px solid var(--gold)}
+.cta-band .cta-text{max-width:560px}
+.cta-band .label{margin-bottom:.8rem}
+.cta-band h2{color:var(--g900);margin:0 0 .35em;font-size:clamp(1.5rem,2.8vw,2.1rem)}
+.cta-band p{margin:0;color:var(--muted);line-height:1.55}
+.cta-band .cta-actions{display:flex;gap:12px;flex-wrap:wrap}
+.cta-band.compact{padding:28px 24px;flex-direction:column;align-items:stretch;gap:20px}
+.cta-band.compact h2{font-size:1.3rem}
+.cta-band.compact p{font-size:.92rem}
+.cta-band.compact .cta-actions{flex-direction:column}
+@media(max-width:560px){.cta-band{padding:30px 24px}.cta-band .cta-actions{width:100%;flex-direction:column}}
 
 /* chat widget */
 .chat-fab{position:fixed;right:22px;bottom:22px;z-index:80;width:62px;height:62px;border-radius:50%;background:var(--g700);color:#fff;border:0;box-shadow:0 12px 30px -8px rgba(15,34,25,.55);cursor:pointer;display:grid;place-items:center;transition:.2s}

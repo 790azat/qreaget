@@ -17,7 +17,7 @@
       <h4 style="font-family:var(--sans);font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)">{{ __('site.articles.more') }}</h4>
       <div style="display:grid;gap:16px">@foreach($more as $a) @include('site._article-card', ['a' => $a]) @endforeach</div>
     @endif
-    <div class="cta-band" style="margin-top:24px;padding:28px;flex-direction:column;align-items:flex-start"><h2 style="font-size:1.3rem">{{ __('site.contact.title') }}</h2><a href="{{ route('contact') }}#form" class="btn">{{ __('site.nav.request') }}</a></div>
+    @include('site._cta-band', ['compact' => true, 'style' => 'margin-top:24px'])
   </aside>
 </div></section>
 @endsection

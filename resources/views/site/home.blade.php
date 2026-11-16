@@ -116,10 +116,7 @@
 
 <section class="contact" id="contact">
   <div class="container">
-    <div class="cta-band reveal" style="margin-bottom:72px">
-      <h2>{{ __('site.contact.title') }}</h2>
-      <a href="{{ tel_href(setting('phone_1')) }}" class="btn"><x-icon name="phone" size="18"/> {{ setting('phone_1') }}</a>
-    </div>
+    @include('site._cta-band', ['class' => 'reveal', 'style' => 'margin-bottom:72px'])
     @include('site._contact-block')
   </div>
 </section>

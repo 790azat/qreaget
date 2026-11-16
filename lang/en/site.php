@@ -68,6 +68,7 @@ We strive to continuously develop our professional capabilities. To that end, we
     'contact' => [
         'label' => 'Contact', 'title' => 'Present your question',
         'text' => 'Fill in the form and we will get back to you during working hours.',
+        'cta_label' => 'Consultation', 'cta_text' => 'Describe your situation — an expert will advise which examination you need and contact you during working hours.',
         'address' => 'Address', 'phone' => 'Phone', 'email' => 'Email', 'hours' => 'Working hours', 'socials' => 'Social media',
     ],
     'form' => [
