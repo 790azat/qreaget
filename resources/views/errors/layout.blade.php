@@ -7,7 +7,7 @@
 <title>@yield('code') · Քրեագետ</title>
 <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@400;600&family=Noto+Serif+Armenian:wght@600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{{ asset('css/site.css') }}?v=9">
+<link rel="stylesheet" href="{{ asset('css/site.css') }}?v=10">
 <style>
 .err{min-height:100vh;display:grid;place-items:center;text-align:center;padding:40px 16px;background:linear-gradient(160deg,var(--g900),var(--g700));color:#c9d6cd}
 .err img{width:120px;height:120px;background:#fff;border-radius:50%;padding:6px;margin:0 auto 24px}
