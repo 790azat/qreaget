@@ -1,7 +1,7 @@
 <button class="chat-fab" id="chatFab" aria-label="{{ __('site.chat.open') }}"><span class="dot"></span><x-icon name="chat" size="28"/></button>
 <div class="chat-box" id="chatBox" role="dialog" aria-label="{{ __('site.chat.title') }}">
   <div class="chat-head">
-    <img src="{{ asset('images/logo.png') }}" alt="">
+    <img src="{{ asset('images/logo.png') }}?v=2" alt="">
     <div><b>{{ __('site.chat.title') }}</b><small>{{ __('site.chat.subtitle') }}</small></div>
     <button id="chatClose" aria-label="Close"><x-icon name="x" size="22"/></button>
   </div>
