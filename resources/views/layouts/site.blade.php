@@ -8,12 +8,12 @@
 <meta name="description" content="@yield('description', setting('meta_description', __('site.hero.text')))">
 <meta property="og:title" content="{{ setting('site_name') }} — {{ __('site.tagline') }}">
 <meta property="og:description" content="{{ __('site.hero.text') }}">
-<meta property="og:image" content="@yield('og_image', asset('images/logo.jpg'))">
+<meta property="og:image" content="@yield('og_image', asset('images/logo.jpg').'?v=2')">
 <meta name="theme-color" content="#16301f">
-<link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+<link rel="icon" type="image/png" href="{{ asset('favicon.png') }}?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@400;500;600;700&family=Noto+Serif+Armenian:wght@500;600;700&family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{{ asset('css/site.css') }}?v=8">
+<link rel="stylesheet" href="{{ asset('css/site.css') }}?v=11">
 {!! setting('analytics_code') !!}
 </head>
 <body>
@@ -34,6 +34,7 @@
 <header class="header">
   <div class="container">
     <a href="{{ route('home') }}" class="brand">
+      <img src="{{ asset('images/logo.png') }}?v=2" alt="{{ setting('site_name') }}">
       <span><b>{{ setting('site_name') }}</b><small>{{ __('site.tagline') }}</small></span>
     </a>
     <button class="burger" aria-label="Menu" onclick="document.querySelector('.nav').classList.toggle('open')"><x-icon name="menu" size="28"/></button>
@@ -70,7 +71,7 @@
   <div class="container">
     <div class="grid">
       <div>
-        <a href="{{ route('home') }}" class="brand" style="margin-bottom:16px"><img src="{{ asset('images/logo.png') }}" alt=""><span><b>{{ setting('site_name') }}</b></span></a>
+        <a href="{{ route('home') }}" class="brand" style="margin-bottom:16px"><img src="{{ asset('images/logo.png') }}?v=2" alt=""><span><b>{{ setting('site_name') }}</b></span></a>
         @php $dot = app()->getLocale() === 'hy' ? '։' : '.'; @endphp
         <p>{{ __('site.tagline') }}{{ $dot }} {{ __('site.hero.tag') }}{{ $dot }}</p>
         <div class="socials">

@@ -5,7 +5,7 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <meta name="robots" content="noindex">
 <title>@yield('title', 'Панель') · {{ setting('site_name') }} Admin</title>
-<link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+<link rel="icon" type="image/png" href="{{ asset('favicon.png') }}?v=2">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('css/admin.css') }}?v=5">
 </head>
@@ -13,7 +13,7 @@
 @php $u = auth()->user(); $unread = \App\Models\ChatSession::where('unread_admin', true)->count(); $newReq = \App\Models\ServiceRequest::where('status', 'new')->count(); @endphp
 <div class="layout">
   <aside class="side" id="side">
-    <a href="{{ route('admin.dashboard') }}" class="brand"><img src="{{ asset('images/logo.png') }}" alt=""><span><b>{{ setting('site_name') }}</b><small>Панель управления</small></span></a>
+    <a href="{{ route('admin.dashboard') }}" class="brand"><img src="{{ asset('images/logo.png') }}?v=2" alt=""><span><b>{{ setting('site_name') }}</b><small>Панель управления</small></span></a>
     <nav>
       <a href="{{ route('admin.dashboard') }}" class="{{ request()->routeIs('admin.dashboard') ? 'on' : '' }}"><x-icon name="dashboard" size="18"/> Обзор</a>
       <a href="{{ route('admin.requests.index') }}" class="{{ request()->routeIs('admin.requests.*') ? 'on' : '' }}"><x-icon name="file" size="18"/> Заявки @if($newReq)<span class="badge">{{ $newReq }}</span>@endif</a>

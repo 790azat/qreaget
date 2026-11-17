@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>@yield('code') · Քրեագետ</title>
-<link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+<link rel="icon" type="image/png" href="{{ asset('favicon.png') }}?v=2">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@400;600&family=Noto+Serif+Armenian:wght@600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{{ asset('css/site.css') }}?v=8">
+<link rel="stylesheet" href="{{ asset('css/site.css') }}?v=11">
 <style>
 .err{min-height:100vh;display:grid;place-items:center;text-align:center;padding:40px 16px;background:linear-gradient(160deg,var(--g900),var(--g700));color:#c9d6cd}
 .err img{width:120px;height:120px;background:#fff;border-radius:50%;padding:6px;margin:0 auto 24px}
@@ -20,7 +20,7 @@
 </head>
 <body>
 <main class="err"><div>
-  <img src="{{ asset('images/logo.png') }}" alt="Քրեագետ">
+  <img src="{{ asset('images/logo.png') }}?v=2" alt="Քրեագետ">
   <div class="code">@yield('code')</div>
   <h1>@yield('hy')</h1>
   <p class="alt">@yield('ru')</p>
