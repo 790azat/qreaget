@@ -54,6 +54,8 @@ html[lang="hy"] .btn-sm{padding-top:.44em;padding-bottom:.66em}
 .header .container{display:flex;align-items:center;gap:24px;min-height:78px}
 .brand{display:flex;align-items:center;gap:12px;color:var(--g900)}
 .brand img{width:54px;height:54px}
+.header .brand img{width:76px;height:76px}
+@media(max-width:560px){.header .brand img{width:54px;height:54px}}
 .brand b{font-family:var(--serif);font-size:1.35rem;letter-spacing:.04em;display:block;line-height:1.1}
 .brand small{display:block;font-size:.7rem;color:var(--muted);max-width:220px;line-height:1.55;margin-top:4px}
 .nav{display:flex;gap:4px;margin-left:auto;align-items:center}
