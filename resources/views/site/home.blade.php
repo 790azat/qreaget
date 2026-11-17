@@ -35,7 +35,7 @@
         @foreach(__('site.about.stats') as $s)<div class="stat"><b>{{ $s[0] }}</b><span>{{ $s[1] }}</span></div>@endforeach
       </div>
     </div>
-    <div class="about-visual reveal has-photo"><img src="{{ asset('images/about.jpg') }}" alt="{{ __('site.about.label') }}" loading="lazy"></div>
+    <div class="about-visual reveal has-photo"><img src="{{ asset('images/about.jpg') }}?v=2" alt="{{ __('site.about.label') }}" loading="lazy"></div>
   </div>
 </section>
 
