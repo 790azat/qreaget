@@ -3,10 +3,11 @@
 @section('actions')<a href="{{ route('admin.articles.create') }}" class="btn btn-primary"><x-icon name="plus" size="16"/> Добавить</a>@endsection
 @section('content')
 <div class="table-wrap"><table class="t">
-  <thead><tr><th>Заголовок</th><th>Дата</th><th>Статус</th><th></th></tr></thead>
+  <thead><tr><th style="width:96px"></th><th>Заголовок</th><th>Дата</th><th>Статус</th><th></th></tr></thead>
   <tbody>
   @forelse($items as $a)
     <tr>
+      <td><img src="{{ $a->cover_url }}" alt="" loading="lazy" style="width:88px;aspect-ratio:16/9;object-fit:cover;border-radius:6px;display:block"></td>
       <td><b>{{ $a->title_hy }}</b><br><small class="muted">{{ $a->title_ru }}</small></td>
       <td class="muted">{{ $a->published_at?->format('d.m.Y') }}</td>
       <td>{!! $a->is_published ? '<span class="pill pill-green">Опубликована</span>' : '<span class="pill pill-gray">Черновик</span>' !!}</td>
@@ -17,7 +18,7 @@
       </td>
     </tr>
   @empty
-    <tr><td colspan="4" class="muted" style="text-align:center;padding:40px">Статей нет</td></tr>
+    <tr><td colspan="5" class="muted" style="text-align:center;padding:40px">Статей нет</td></tr>
   @endforelse
   </tbody>
 </table></div>

@@ -1,6 +1,7 @@
 @extends('layouts.site')
 @section('title', $article->t('title'))
 @section('description', $article->t('excerpt'))
+@section('og_image', $article->cover_url)
 @section('content')
 <div class="page-hero"><div class="container">
   <div class="crumbs"><a href="{{ route('home') }}">{{ __('site.nav.home') }}</a> / <a href="{{ route('articles') }}">{{ __('site.articles.title') }}</a></div>
@@ -8,7 +9,7 @@
 </div></div>
 <section class="page"><div class="container two-col">
   <article class="card prose" style="box-shadow:none">
-    @if($article->image_url)<img src="{{ $article->image_url }}" alt="" style="border-radius:12px;margin-bottom:24px">@endif
+    <img src="{{ $article->cover_url }}" alt="" style="border-radius:12px;margin-bottom:24px;width:100%;aspect-ratio:16/9;object-fit:cover">
     @if($article->t('excerpt'))<p style="font-size:1.15rem;color:var(--g700)"><b>{{ $article->t('excerpt') }}</b></p>@endif
     {!! nl2br(e($article->t('body'))) !!}
   </article>
