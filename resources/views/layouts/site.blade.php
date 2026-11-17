@@ -8,7 +8,7 @@
 <meta name="description" content="@yield('description', setting('meta_description', __('site.hero.text')))">
 <meta property="og:title" content="{{ setting('site_name') }} — {{ __('site.tagline') }}">
 <meta property="og:description" content="{{ __('site.hero.text') }}">
-<meta property="og:image" content="{{ asset('images/logo.jpg') }}">
+<meta property="og:image" content="@yield('og_image', asset('images/logo.jpg'))">
 <meta name="theme-color" content="#16301f">
 <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
