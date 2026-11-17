@@ -26,6 +26,8 @@ class DatabaseSeeder extends Seeder
             Department::firstOrCreate(['slug' => $d['slug']], $d + ['sort' => ($i + 1) * 10]);
         }
 
+        Department::syncTexts();
+
         if (Faq::count() === 0) {
             foreach ($this->faqs() as $i => $f) {
                 Faq::create($f + ['sort' => $i]);

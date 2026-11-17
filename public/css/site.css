@@ -229,6 +229,13 @@ html[lang="hy"] .btn-sm{padding-top:.44em;padding-bottom:.66em}
 .two-col>*{min-width:0}
 .prose{font-size:1.05rem}
 .prose p{margin-bottom:1.1em}
+.svc-content{line-height:1.7}
+.svc-content h3{font-size:1.3rem;margin:1.8em 0 .7em;color:var(--g700)}
+.svc-content>h3:first-child{margin-top:0}
+.svc-content ul{margin:0 0 1.3em;padding-left:1.2em}
+.svc-content li{margin-bottom:.55em}
+.svc-content li::marker{color:var(--gold)}
+.svc-content strong{color:var(--ink)}
 .side-list{display:grid;gap:6px}
 .side-list a{padding:.7em 1em;border-radius:10px;color:var(--ink);display:flex;gap:10px;align-items:center;font-size:.92rem}
 .side-list a:hover,.side-list a.on{background:var(--g50);color:var(--g700)}

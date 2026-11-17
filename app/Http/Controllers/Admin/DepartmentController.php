@@ -48,6 +48,7 @@ class DepartmentController extends Controller
 
     private function validated(Request $request, ?Department $d = null): array
     {
+        Department::ensureContentColumns();
         $rules = [
             'slug' => ['nullable', 'alpha_dash', 'max:80', Rule::unique('departments')->ignore($d?->id)],
             'icon' => 'required|string|max:40',
@@ -56,6 +57,7 @@ class DepartmentController extends Controller
         foreach (['hy', 'ru', 'en'] as $l) {
             $rules["name_$l"] = ($l === 'hy' ? 'required' : 'nullable').'|string|max:200';
             $rules["description_$l"] = 'nullable|string|max:5000';
+            $rules["content_$l"] = 'nullable|string|max:60000';
         }
         $data = $request->validate($rules);
         $data['slug'] = $data['slug'] ?: Str::slug($data['name_en'] ?: $data['name_ru'] ?: 'dept-'.Str::random(5));

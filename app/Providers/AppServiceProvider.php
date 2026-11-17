@@ -29,6 +29,11 @@ class AppServiceProvider extends ServiceProvider
         RateLimiter::for('forms', fn (Request $r) => Limit::perMinute(8)->by('forms|'.$r->path().'|'.$r->ip()));
         RateLimiter::for('login', fn (Request $r) => Limit::perMinute(10)->by('login|'.$r->ip().'|'.strtolower((string) $r->input('email'))));
 
+        // One-time import of service texts on hosts without a migrate step (Vercel).
+        if (! $this->app->runningInConsole()) {
+            Department::syncTexts();
+        }
+
         Paginator::defaultView('partials.pagination');
         Paginator::defaultSimpleView('partials.pagination');
 
