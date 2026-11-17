@@ -123,7 +123,9 @@ html[lang="hy"] .btn-sm{padding-top:.44em;padding-bottom:.66em}
 @media(max-width:1024px){.svc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:640px){.svc-grid{grid-template-columns:minmax(0,1fr)}}
 .svc{position:relative;display:flex;flex-direction:column;gap:12px;padding:26px;border:1px solid var(--line);border-radius:var(--r);background:var(--bg);color:var(--ink);transition:.25s}
-.svc:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--gold2);color:var(--ink)}
+.svc:hover,.svc.reveal.in:hover{transform:translateY(-4px) scale(1.03);box-shadow:var(--shadow);border-color:var(--gold2);color:var(--ink);z-index:2}
+.svc.reveal.in{transition:opacity .7s ease,transform .35s ease,box-shadow .3s ease,border-color .3s ease}
+@media(hover:none),(prefers-reduced-motion:reduce){.svc:hover,.svc.reveal.in:hover{transform:none}}
 .svc .ic{width:52px;height:52px;border-radius:12px;background:var(--g700);color:var(--gold2);display:grid;place-items:center}
 .svc h3{margin:0;font-size:1.05rem}
 .svc p{font-size:.9rem;color:var(--muted);margin:0 0 auto;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
