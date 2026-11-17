@@ -13,7 +13,7 @@
 <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@400;500;600;700&family=Noto+Serif+Armenian:wght@500;600;700&family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{{ asset('css/site.css') }}?v=8">
+<link rel="stylesheet" href="{{ asset('css/site.css') }}?v=9">
 {!! setting('analytics_code') !!}
 </head>
 <body>
@@ -34,6 +34,7 @@
 <header class="header">
   <div class="container">
     <a href="{{ route('home') }}" class="brand">
+      <img src="{{ asset('images/logo.png') }}" alt="{{ setting('site_name') }}">
       <span><b>{{ setting('site_name') }}</b><small>{{ __('site.tagline') }}</small></span>
     </a>
     <button class="burger" aria-label="Menu" onclick="document.querySelector('.nav').classList.toggle('open')"><x-icon name="menu" size="28"/></button>
