@@ -44,17 +44,16 @@ class Faq extends Model
                 return; // another request is doing (or did) the import
             }
             try {
-                DB::transaction(function () {
-                    static::query()->delete();
-                    foreach (require database_path('data/faqs.php') as $i => $f) {
-                        static::create($f + ['sort' => $i, 'is_active' => true]);
-                    }
-                });
+                static::query()->delete();
+                foreach (require database_path('data/faqs.php') as $i => $f) {
+                    static::create($f + ['sort' => $i, 'is_active' => true]);
+                }
             } catch (\Throwable $e) {
                 DB::table('settings')->where('key', $key)->update(['value' => null]);
                 throw $e;
             }
         } catch (\Throwable $e) {
+            error_log('Faq::syncClientFaqs failed: '.$e->getMessage());
             report($e);
         }
     }
