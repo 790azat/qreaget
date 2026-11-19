@@ -28,11 +28,7 @@ class DatabaseSeeder extends Seeder
 
         Department::syncTexts();
 
-        if (Faq::count() === 0) {
-            foreach ($this->faqs() as $i => $f) {
-                Faq::create($f + ['sort' => $i]);
-            }
-        }
+        Faq::syncClientFaqs();
 
         if (Article::count() === 0) {
             foreach ($this->articles() as $i => $a) {
@@ -113,36 +109,6 @@ class DatabaseSeeder extends Seeder
                 'description_hy' => 'Ապրանքների որակի, վիճակի, ծագման, դասակարգման և արժեքի որոշում, ներառյալ ներմուծվող ապրանքների համար։',
                 'description_ru' => 'Определение качества, состояния, происхождения, классификации и стоимости товаров, в том числе импортируемых.',
                 'description_en' => 'Determining the quality, condition, origin, classification and value of goods, including imported goods.',
-            ],
-        ];
-    }
-
-    private function faqs(): array
-    {
-        return [
-            [
-                'question_hy' => 'Ինչպե՞ս ներկայացնել հայտ։', 'question_ru' => 'Как подать заявку?', 'question_en' => 'How do I submit a request?',
-                'answer_hy' => 'Լրացրեք կայքի հայտի ձևը, գրեք մեզ առցանց չաթում կամ զանգահարեք։ Գրանցված օգտատերերը կարող են հետևել հայտի կարգավիճակին անձնական էջում։',
-                'answer_ru' => 'Заполните форму заявки на сайте, напишите нам в онлайн-чат или позвоните. Зарегистрированные пользователи могут отслеживать статус заявки в личном кабинете.',
-                'answer_en' => 'Fill in the request form, write to us in the live chat or call us. Registered users can track the status of their request in their account.',
-            ],
-            [
-                'question_hy' => 'Ի՞նչ նյութեր են անհրաժեշտ։', 'question_ru' => 'Какие материалы нужны?', 'question_en' => 'What materials are needed?',
-                'answer_hy' => 'Անհրաժեշտ նյութերի ցանկը որոշվում է նախնական քննարկման ժամանակ՝ կախված հարցի բնույթից և փորձաքննության տեսակից։',
-                'answer_ru' => 'Перечень необходимых материалов определяется на предварительной консультации в зависимости от характера вопроса и вида экспертизы.',
-                'answer_en' => 'The list of materials is defined during the initial consultation, depending on the question and the type of expertise.',
-            ],
-            [
-                'question_hy' => 'Ինչպե՞ս են որոշվում ժամկետը և արժեքը։', 'question_ru' => 'Как определяются сроки и стоимость?', 'question_en' => 'How are timing and cost set?',
-                'answer_hy' => 'Ժամկետը և արժեքը համաձայնեցվում են անհատապես՝ հետազոտության ծավալից և բարդությունից ելնելով։',
-                'answer_ru' => 'Сроки и стоимость согласовываются индивидуально исходя из объёма и сложности исследования.',
-                'answer_en' => 'Timing and cost are agreed individually based on the scope and complexity of the research.',
-            ],
-            [
-                'question_hy' => 'Ինչպե՞ս ընտրել փորձաքննության տեսակը։', 'question_ru' => 'Как выбрать вид экспертизы?', 'question_en' => 'How do I choose the type of expertise?',
-                'answer_hy' => 'Նկարագրեք ձեր հարցը, և մեր մասնագետները կառաջարկեն համապատասխան ուղղությունը։',
-                'answer_ru' => 'Опишите ваш вопрос, и наши специалисты подскажут подходящее направление.',
-                'answer_en' => 'Describe your question and our specialists will suggest the right direction.',
             ],
         ];
     }

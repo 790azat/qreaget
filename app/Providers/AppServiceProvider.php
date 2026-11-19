@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Department;
+use App\Models\Faq;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
@@ -32,6 +33,7 @@ class AppServiceProvider extends ServiceProvider
         // One-time import of service texts on hosts without a migrate step (Vercel).
         if (! $this->app->runningInConsole()) {
             Department::syncTexts();
+            Faq::syncClientFaqs();
         }
 
         Paginator::defaultView('partials.pagination');
