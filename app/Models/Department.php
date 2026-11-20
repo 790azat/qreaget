@@ -26,7 +26,10 @@ class Department extends Model
     {
         $rel = 'images/departments/'.$this->slug.'.jpg';
 
-        return is_file(public_path($rel)) ? asset($rel) : null;
+        $path = public_path($rel);
+
+        // ?v= busts browser/CDN caches when a photo is replaced under the same name
+        return is_file($path) ? asset($rel).'?v='.substr(md5_file($path), 0, 8) : null;
     }
 
     /** Bump when database/data/department_texts_hy.php changes and should be re-applied. */
